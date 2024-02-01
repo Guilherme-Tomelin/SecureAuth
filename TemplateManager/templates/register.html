@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block 'titulo' %}Cadastro{% endblock %}
+
+{% block 'content' %}
+<div class="login-container">
+    <div class="card">
+        <div class="svg-container">
+            <img src="/static/images/undraw_meet_the_team_re_4h08.svg" alt="Imagem de Cadastro">
+        </div>
+        <div class="register-form">
+            <h2>Cadastro</h2>
+            <form method="POST" action="{% url 'valida_cadastro' %}">
+                {% csrf_token %}
+                <div class="input-group">
+                    <label for="username">Nome de usuário:</label>
+                    <input type="text" id="username" name="username" placeholder="Nome.." required>
+                </div>
+                <div class="input-group">
+                    <label for="username">Email:</label>
+                    <input type="text" id="email" name="email" placeholder="Email.." required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Senha:</label>
+                    <input type="password" id="password" name="password" placeholder="Senha.." required>
+                </div>
+                <div class="input-group">
+                    <label for="confirm_password">Confirmar Senha:</label>
+                    <input type="password" id="confirm_password" name="confirm_password" placeholder="Senha.." required>
+                </div>
+                <button type="submit">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

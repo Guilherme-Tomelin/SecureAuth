@@ -23,6 +23,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'TemplateManager',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -40,7 +42,7 @@ ROOT_URLCONF = 'secureauth.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'TemplateManager/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

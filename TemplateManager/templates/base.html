@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>{% block 'titulo' %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+
+    {% block 'head' %}{% endblock %}
+
+
+</head>
+<body>
+    
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <a href="#" class="navbar-logo">SecureAuth</a>
+            </div>
+            <ul class="navbar-menu">
+                <li class="navbar-item"><a href="#" class="navbar-link">Link1</a></li>
+                <li class="navbar-item"><a href="#" class="navbar-link">Link2</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="content">
+        {% block 'content' %}{% endblock %}
+    </div>
+</body>
+</html>
