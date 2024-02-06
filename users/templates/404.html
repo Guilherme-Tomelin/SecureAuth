@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block 'titulo' %}Página não encontrada{% endblock %}
+
+{% block 'content' %}
+<div class="container">
+    <header>
+        <h1>Ops! Parece que você se perdeu.</h1>
+    </header>
+
+    <div class="main-content">
+        <div class="error-message">
+            <p>A página que você está procurando não pôde ser encontrada.</p>
+            <p><a href="/">Clique aqui</a> para voltar à página inicial.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

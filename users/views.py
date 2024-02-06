@@ -7,6 +7,14 @@ from django.contrib.auth.hashers import make_password, check_password
 from hashlib import sha256
 from .forms import UserProfileForm
 
+
+def home(request):
+    if request.session.get('user'):  
+        return render(request, 'profile.html')
+    else:
+        return redirect('/auth/login/')
+
+
 def login(request):
     if request.session.get('user'):
         return redirect('/profile/userprofile')
@@ -18,10 +26,10 @@ def register(request):
     return render(request, 'register.html', {'status': status})
 
 
-
 def logout(request):
     request.session.flush()
-    return redirect ('/auth/login/')
+    return redirect ('login')
+
 
 def valida_login(request):
     if request.method == 'POST':
@@ -86,3 +94,6 @@ def valida_cadastro(request):
         return redirect('/auth/register/?status=5')
 
 
+
+def handler404(request, exception):
+    return render(request, '404.html')
