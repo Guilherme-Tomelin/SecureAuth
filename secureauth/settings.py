@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'TemplateManager',
     'users',
+    'user_profile',
 ]
 
 MIDDLEWARE = [

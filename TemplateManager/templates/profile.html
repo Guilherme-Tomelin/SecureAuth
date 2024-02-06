@@ -1,0 +1,63 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuário</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Perfil de Usuário</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Editar Perfil</a></li>
+                    <li><a href="#">Sair</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <div class="container">
+            <div class="profile-card">
+                <div class="profile-header">
+                    <div class="profile-picture">
+                        <img src= https://github.com/Guilherme-Tomelin.png alt="Foto de Perfil">
+                    </div>
+                    <div class="profile-info">
+                        <h2>Nome do Usuário</h2>
+                        <p>Email: exemplo@dominio.com</p>
+                        <p>Localização: Cidade, País</p>
+                        <p>Github: <a href="https://github.com/seu_usuario_github">seu_usuario_github</a></p>
+                        <p>LinkedIn: <a href="https://linkedin.com/in/seu_usuario_linkedin">seu_usuario_linkedin</a></p>
+                    </div>
+                </div>
+                <div class="profile-introduction">
+                    <h3>Sobre Mim</h3>
+                    <p>Esta é uma breve descrição sobre mim e minhas habilidades.</p>
+                </div>
+                <div class="profile-posts">
+                    <h3>Publicações Recentes</h3>
+                    <div class="post">
+                        <p>Publicação 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                    <div class="post">
+                        <p>Publicação 2: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>Guilherme-Tomelin</p>
+        </div>
+    </footer>
+</body>
+</html>

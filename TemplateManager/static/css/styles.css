@@ -77,6 +77,7 @@ body {
     display: flex;
     align-items: center; /* Centralizando verticalmente */
     justify-content: center; /* Centralizando horizontalmente */
+    margin-right: 20px;
 }
 
 .svg-container img {
@@ -128,4 +129,154 @@ button:hover {
 
 .content {
     margin-top: 80px; /* Ajuste conforme a altura da sua navbar */
+}
+
+.chat-message {
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.error-message {
+    background-color: #ffebee; /* Cor de fundo para mensagens de erro */
+    color: #b71c1c; /* Cor do texto para mensagens de erro */
+    border: 1px solid #e53935; /* Cor da borda para mensagens de erro */
+    padding: 10px; /* Espaçamento interno da mensagem de erro */
+    margin-bottom: 20px; /* Margem inferior para separar da próxima seção */
+    text-align: center; /* Centraliza o texto horizontalmente */
+    width: 100%; /* Define a largura total */
+    border-radius: 5px; /* Ajuste estético */
+}
+
+/* Media query para telas menores */
+@media only screen and (max-width: 768px) {
+    .card {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .svg-container {
+        margin: 0;
+    }
+
+    .svg-container img {
+        margin: 0 0 20px;
+    }
+
+    .login-form {
+        padding-left: 0;
+    }
+
+    .input-group input {
+        width: calc(100% - 20px);
+    }
+}
+
+
+
+/*Home*/
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+header {
+    background-color: #3498db;
+    color: #fff;
+    padding: 20px 0;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-left: 20px;
+}
+
+nav ul li:first-child {
+    margin-left: 0;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.main-content {
+    padding: 20px 0;
+}
+
+.profile-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+}
+
+.profile-picture {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 20px;
+}
+
+.profile-picture img {
+    width: 100%;
+    height: auto;
+}
+
+.profile-info {
+    flex: 1;
+}
+
+.profile-info h2 {
+    margin: 0;
+    color: #333;
+}
+
+.profile-info p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.profile-introduction h3,
+.profile-posts h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.profile-posts .post {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+footer {
+    background-color: #3498db;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
 }

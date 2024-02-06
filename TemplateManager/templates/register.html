@@ -10,6 +10,11 @@
         </div>
         <div class="register-form">
             <h2>Cadastro</h2>
+            {% if status == '2' %}
+                <div class="error-message">
+                    O email já está em uso.
+                </div>
+            {% endif %}
             <form method="POST" action="{% url 'valida_cadastro' %}">
                 {% csrf_token %}
                 <div class="input-group">

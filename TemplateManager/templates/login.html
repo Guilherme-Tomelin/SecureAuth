@@ -14,11 +14,11 @@
         </div>
         <div class="login-form">
             <h2>Login</h2>
-            <form method="post">
+            <form method="post" action="{% url 'valida_login' %}">
                 {% csrf_token %}
                 <div class="input-group">
-                    <label for="username">Usuário:</label>
-                    <input type="text" id="username" name="username" required>
+                    <label for="email">Email:</label>
+                    <input type="text" id="email" name="email" required>
                 </div>
                 <div class="input-group">
                     <label for="password">Senha:</label>

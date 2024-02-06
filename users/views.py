@@ -3,13 +3,52 @@ from django.http import HttpResponse
 from .models import User
 from django.shortcuts import redirect
 from django.core.exceptions import ValidationError
-from django.contrib.auth.hashers import make_password
+from django.contrib.auth.hashers import make_password, check_password
+from hashlib import sha256
+from .forms import UserProfileForm
 
 def login(request):
-    return render(request, 'login.html')
+    if request.session.get('user'):
+        return redirect('/profile/userprofile')
+    status = request.GET.get('status')
+    return render(request, 'login.html', {'status': status})
 
 def register(request):
-    return render(request, 'register.html')
+    status = request.GET.get('status')
+    return render(request, 'register.html', {'status': status})
+
+
+
+def logout(request):
+    request.session.flush()
+    return redirect ('/auth/login/')
+
+def valida_login(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        print('recebimento post')
+
+
+        try:
+            user = User.objects.get(email=email)
+            if check_password(password, user.password):
+                request.session['user'] = user.id
+                print('User autenticado')
+                return redirect('/profile/userprofile/')
+            else:
+                print('senha incorreta')
+                return redirect('/auth/login/?status=2')  # Senha incorreta
+        except User.DoesNotExist:
+            print('User nao encontrado')
+            return redirect('/auth/login/?status=1')  # Usuário não encontrado
+
+    elif request.method == 'GET':
+        print('Método não permitido')
+        return HttpResponse("Método não permitido")
+
+
+
 
 def valida_cadastro(request):
     if request.method == 'POST':
@@ -26,11 +65,12 @@ def valida_cadastro(request):
         # Verifica se o email já está em uso
         try:
             User.objects.get(email=email)
+            print('status 2......')
             return redirect('/auth/register/?status=2')
         except User.DoesNotExist:
             pass
 
-        # Verifica se as senhas correspondem
+        # Verifica se as passwords correspondem
         if password != confirm_password:
             return redirect('/auth/register/?status=3')
         
@@ -44,4 +84,5 @@ def valida_cadastro(request):
             return redirect('/auth/register/?status=4')
     else:
         return redirect('/auth/register/?status=5')
+
 
