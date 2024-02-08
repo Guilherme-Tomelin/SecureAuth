@@ -10,9 +10,10 @@ load_dotenv()
 
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = ['127.0.0.1']
 
 
 

@@ -19,11 +19,27 @@ def login(request):
     if request.session.get('user'):
         return redirect('/profile/userprofile')
     status = request.GET.get('status')
-    return render(request, 'login.html', {'status': status})
+    status_message = ''
+    if status == '1':
+        status_message = 'Usuário não encontrado.'
+    elif status == '2':
+        status_message = 'Senha incorreta.'
+    return render(request, 'login.html', {'status': status, 'status_message': status_message})
 
 def register(request):
     status = request.GET.get('status')
-    return render(request, 'register.html', {'status': status})
+    status_message = ''
+
+    if status == '1':
+        status_message = 'Todos os campos devem ser preenchidos.'
+    elif status == '2':
+        status_message = 'Senha incorreta.'
+    elif status == '3':
+        status_message = 'As senhas não correspondem'
+    
+
+
+    return render(request, 'register.html', {'status': status, 'status_message': status_message})
 
 
 def logout(request):
@@ -37,12 +53,12 @@ def valida_login(request):
         password = request.POST.get('password')
         print('recebimento post')
 
-
         try:
             user = User.objects.get(email=email)
             if check_password(password, user.password):
                 request.session['user'] = user.id
                 print('User autenticado')
+                print(user)
                 return redirect('/profile/userprofile/')
             else:
                 print('senha incorreta')

@@ -15,7 +15,7 @@
             <h1>Perfil de Usuário</h1>
             <nav>
                 <ul>
-                    <li><a href="#">Editar Perfil</a></li>
+                    <li><a href="{% url 'edit_profile' %}">Editar Perfil</a></li>
                     <li><a href="{% url 'logout' %}">Sair</a></li>
                 </ul>
             </nav>
@@ -27,19 +27,19 @@
             <div class="profile-card">
                 <div class="profile-header">
                     <div class="profile-picture">
-                        <img src= https://github.com/Guilherme-Tomelin.png alt="Foto de Perfil">
+                        <img src= "{{ github }}.png" alt="Foto de Perfil">
                     </div>
                     <div class="profile-info">
-                        <h2>Nome do Usuário</h2>
-                        <p>Email: exemplo@dominio.com</p>
-                        <p>Localização: Cidade, País</p>
-                        <p>Github: <a href="https://github.com/seu_usuario_github">seu_usuario_github</a></p>
-                        <p>LinkedIn: <a href="https://linkedin.com/in/seu_usuario_linkedin">seu_usuario_linkedin</a></p>
+                        <h2>{{ username }}</h2>
+                        <p>Email: {{ email }}</p>
+                        <p>Localização: {{ location }}</p>
+                        <p>Github: <a href="{{ github }}">{{ github }}</a></p>
+                        <p>LinkedIn: <a href="{{ linkedin }}">{{ linkedin }}</a></p>
                     </div>
                 </div>
                 <div class="profile-introduction">
                     <h3>Sobre Mim</h3>
-                    <p>Esta é uma breve descrição sobre mim e minhas habilidades.</p>
+                    <p>{{ about_me }}</p>
                 </div>
                 <div class="profile-posts">
                     <h3>Publicações Recentes</h3>
@@ -56,7 +56,11 @@
 
     <footer>
         <div class="container">
-            <p>Guilherme-Tomelin</p>
+            <p>Desenvolvido por Guilherme Tomelin</p>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/guilherme-tomelin-dos-santos-1b7a73199/" target="_blank"><img src="https://img.icons8.com/color/48/000000/linkedin.png" alt="LinkedIn"></a>
+                <a href="https://github.com/Guilherme-Tomelin" target="_blank"><img src="https://img.icons8.com/ios-filled/50/000000/github.png" alt="GitHub"></a>
+            </div>
         </div>
     </footer>
 </body>
